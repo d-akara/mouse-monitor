@@ -1,6 +1,7 @@
 package winapi
 
 import (
+	"fmt"
 	"syscall"
 	"unsafe"
 
@@ -66,4 +67,34 @@ func GetRawInputDeviceMouseDefinition(hWnd win.HWND) []win.RAWINPUTDEVICE {
 	devices[0].DwFlags = win.RIDEV_INPUTSINK
 	devices[0].HwndTarget = hWnd
 	return devices
+}
+
+func MakeMouseRawInputReceiver(mouseInputHandler func(RAWMOUSE)) WndProc {
+	return func(hWnd win.HWND, msg uint32, wParam, lParam uintptr) uintptr {
+		switch msg {
+		case win.WM_CREATE:
+			fmt.Println("Registering raw input mouse")
+			devices := GetRawInputDeviceMouseDefinition(hWnd)
+			len := uint32(len(devices))
+			size := uint32(unsafe.Sizeof(devices[0]))
+			if !win.RegisterRawInputDevices(&devices[0], len, size) {
+				panic("Unable to register devices")
+			}
+
+		case win.WM_INPUT:
+			// reference - https://docs.microsoft.com/en-us/windows/desktop/DxTechArts/taking-advantage-of-high-dpi-mouse-movement
+			var raw RAWINPUT
+			cbSize := uint32(unsafe.Sizeof(raw))
+			win.GetRawInputData((win.HRAWINPUT)(unsafe.Pointer(uintptr(lParam))), win.RID_INPUT, unsafe.Pointer(&raw), &cbSize, uint32(unsafe.Sizeof(RAWINPUTHEADER{})))
+			mouseInputHandler(raw.Mouse)
+
+		case win.WM_DESTROY:
+			fmt.Println("destroying window")
+			win.PostQuitMessage(0)
+		default:
+			return win.DefWindowProc(hWnd, msg, wParam, lParam)
+		}
+
+		return 0
+	}
 }
