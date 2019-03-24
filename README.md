@@ -8,6 +8,7 @@ Mouse Monitor is useful for precisely setting mouse sensitivity values across ga
 
 ## How to use
 ### Basic use
+1. [Download](https://github.com/dakaraphi/mouse-monitor/releases) or locally build using [Golang](https://golang.org/)
 1. Run `mouse-monitor.exe` in a Windows Command Prompt window
 1. Left click to set starting position for measurement
 1. Left click again to print to the console the relative position compared to previous left click
