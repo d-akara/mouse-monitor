@@ -4,6 +4,8 @@ Mouse Monitor is useful for precisely setting mouse sensitivity values across ga
 - Mouse Monitor reads the Raw Mouse Input data to get the precise movement of your mouse
 - Using this method, we do not need to know the DPI of the mouse or FOV of the game or use any calculations to match sensitivity across games
 
+![ScreenShot](mouse-monitor.png)
+
 ## How to use
 ### Basic use
 1. Run `mouse-monitor.exe` in a Windows Command Prompt window
