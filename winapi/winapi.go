@@ -73,7 +73,6 @@ func MakeMouseRawInputReceiver(mouseInputHandler func(RAWMOUSE)) WndProc {
 	return func(hWnd win.HWND, msg uint32, wParam, lParam uintptr) uintptr {
 		switch msg {
 		case win.WM_CREATE:
-			fmt.Println("Registering raw input mouse")
 			devices := GetRawInputDeviceMouseDefinition(hWnd)
 			len := uint32(len(devices))
 			size := uint32(unsafe.Sizeof(devices[0]))

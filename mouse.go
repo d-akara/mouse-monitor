@@ -65,6 +65,8 @@ func consoleDisplayLoop() {
 }
 
 func main() {
+	fmt.Println("Mouse Monitor v1.0 - https://github.com/dakaraphi/mouse-monitor")
+	fmt.Println("Left click to print current relative position and set new starting position for measurement")
 	displaySignal = make(chan bool)
 	mouseTracking.msgHzLastTime = time.Now()
 	go winapi.StartWindowsMessageLoop(winapi.MakeMouseRawInputReceiver(handleMouseInput))
