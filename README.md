@@ -40,8 +40,25 @@ If the games have the same FOV, then either method will have the same result.  G
     1. Launch another game
     1. Measure the `delta position`
     1. Adjust the game mouse sensivity until the `delta position` measurement matches the previous game.
-    
+
+### Estimating new sensitivity by calculation
+You may be able to avoid several rounds of tweaking your sense by using this calculation
+
+New Sense Value = `new delta` / `current delta` * `current sense value`
+
+- `new delta` - This is the mouse movement distance you want to match from another game
+- `current delta` - This is the current mouse movement distance of the game you are changing
+- `curent sense value` - The current sensitivity value of the game you are changing
+
 ### Measuring mouse polling Hz
 1. Mouse Monitor also reports on the polling frequency in Hz of your mouse
     1.  Move your mouse around continuosly for about 5 secs to get the approximate polling Hz of the mouse
+
+### Calculating FOV for a game
+Some games do not state the FOV; however, you can easily calculate using mouse monitor.
+
+FOV = (`center to edge delta` * 2) / `360 delta` * 360
+
+- `center to edge delta` - measure the distance from screen center to edge
+- `360 delta` - measure the distance to rotate 360 degrees
 
