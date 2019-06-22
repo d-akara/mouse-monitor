@@ -22,6 +22,8 @@ There are 2 methods for matching mouse sensivity.  You will need to choose one o
 It might seem that these should be the same, but due to games having different FOV, they may be different.
 If the games have the same FOV, then either method will have the same result.  Generally, most people are interested in matching the feel for aiming and would choose this option.
 
+---
+
 ### Synchronizing game mouse sensitivity for aiming
 1. Use `Mouse Monitor` to measure the distance between center of the screen and the edge
     1. Find a visual reference in the game and position so it marks the edge of the screen
@@ -33,6 +35,10 @@ If the games have the same FOV, then either method will have the same result.  G
     1. Measure the `delta position`
     1. Adjust the game mouse sensivity until the `delta position` measurement matches the previous game.
 
+![ScreenShot](mouse-aiming.png)
+
+---
+
 ### Synchronizing game mouse sensitivity for 360 movement
 1. Use `Mouse Monitor` to measure the distance to rotate 360 degrees
     1. Find a visual reference in the game and position so it is centered under the aiming cursor
@@ -43,6 +49,10 @@ If the games have the same FOV, then either method will have the same result.  G
     1. Launch another game
     1. Measure the `delta position`
     1. Adjust the game mouse sensivity until the `delta position` measurement matches the previous game.
+
+![ScreenShot](mouse-movement.png)
+
+---
 
 ### Estimating new sensitivity by calculation
 You may be able to avoid several rounds of tweaking your sense by using this calculation
