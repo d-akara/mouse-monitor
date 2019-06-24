@@ -67,10 +67,12 @@ New Sense Value = `new delta` / `current delta` * `current sense value`
 1. Mouse Monitor also reports on the polling frequency in Hz of your mouse
     1.  Move your mouse around continuosly for about 5 secs to get the approximate polling Hz of the mouse
 
-### Calculating FOV for a game
-Some games do not state the FOV; however, you can easily calculate using mouse monitor.
+### Calculating Angle of View for a game
+Angle of view will tell you how much of the 360 degree physical world is in view.
 
-FOV = (`center to edge delta` * 2) / `360 delta` * 360
+Note, this is not the same as FOV, which can be the same for different aspect ratios, but the amount of the physical world you see will differ.
+
+AOV = (`center to edge delta` / `360 delta`) * 720
 
 - `center to edge delta` - measure the distance from screen center to edge
 - `360 delta` - measure the distance to rotate 360 degrees
