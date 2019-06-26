@@ -57,7 +57,7 @@ If the games have the same FOV, then either method will have the same result.  G
 ### Estimating new sensitivity by calculation
 You may be able to avoid several rounds of tweaking your sense by using this calculation
 
-New Sense Value = `new delta` / `current delta` * `current sense value`
+New Sense Value = `current delta` / `new delta` * `current sense value`
 
 - `new delta` - This is the mouse movement distance you want to match from another game
 - `current delta` - This is the current mouse movement distance of the game you are changing
